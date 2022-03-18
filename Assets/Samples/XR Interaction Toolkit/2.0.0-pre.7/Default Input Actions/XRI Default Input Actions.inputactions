@@ -1091,9 +1091,18 @@
             "id": "be8b4968-1b59-459b-982a-424f2b0757d0",
             "actions": [
                 {
-                    "name": "Toggle",
+                    "name": "ToggleLeft",
                     "type": "Button",
                     "id": "4ee8699d-1788-46a3-bdbc-f7d8caaf85c9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleRight",
+                    "type": "Button",
+                    "id": "068d57a8-0af1-4a03-b6a5-72ab79f926a3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -1104,11 +1113,22 @@
                 {
                     "name": "",
                     "id": "a000ba42-f4ee-4934-b235-f8f3523d98b3",
-                    "path": "<OculusTouchController>/primaryButton",
+                    "path": "<XRController>{LeftHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
-                    "action": "Toggle",
+                    "action": "ToggleLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e4af9b13-90ab-43f8-bf1b-c0702a3312cc",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "ToggleRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

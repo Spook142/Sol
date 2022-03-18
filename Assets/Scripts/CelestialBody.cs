@@ -10,8 +10,20 @@ public class CelestialBody : MonoBehaviour
     public Vector3 initialVelocity;
     public string bName = "null";
 
-    public Vector3 velocity { get; private set; }
-    public float m { get; private set; }
+    [SerializeField] private Vector3 Vel;
+    public Vector3 velocity
+    {
+        get => Vel;
+        set => Vel = value;
+    }
+
+    [SerializeField] private float Mass;
+    public float m
+    {
+        get => Mass;
+        set => Mass = value;
+    }
+
     Rigidbody rb;
 
     void Awake()
