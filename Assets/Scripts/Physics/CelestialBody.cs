@@ -5,7 +5,7 @@ using UnityEngine;
 public class CelestialBody : MonoBehaviour
 {
 
-    public float r;
+    public float radius;
     public float sGravity;
     public Vector3 initialVelocity;
     public string bName = "null";
@@ -18,7 +18,7 @@ public class CelestialBody : MonoBehaviour
     }
 
     [SerializeField] private float Mass;
-    public float m
+    public float mass
     {
         get => Mass;
         set => Mass = value;
@@ -29,7 +29,7 @@ public class CelestialBody : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        rb.mass = m;
+        rb.mass = mass;
         velocity = initialVelocity;
     }
 
@@ -42,26 +42,26 @@ public class CelestialBody : MonoBehaviour
                 float sqrDst = (otherBody.rb.position - rb.position).sqrMagnitude;
                 Vector3 fDir = (otherBody.rb.position - rb.position).normalized;
 
-                Vector3 accel = fDir * Universe.gravitationalConstant * otherBody.m / sqrDst;
-                velocity += accel * timeStep;
+                Vector3 accel = fDir * Universe.gravitationalConstant * otherBody.mass / sqrDst;
+                velocity += accel * timeStep;               
             }
         }
     }
 
-    public void UpdateVelocity(Vector3 accel, float t)
+    public void UpdateVelocity(Vector3 accel, float timeStep)
     {
-        velocity += accel * t;
+        velocity += accel * timeStep;
     }
 
-    public void UpdatePosition(float t)
+    public void UpdatePosition(float timeStep)
     {
-        rb.MovePosition(rb.position + velocity * t);
+        rb.MovePosition(rb.position + velocity * timeStep);
     }
 
     void OnValidate()
     {
-        m = sGravity * r * r / Universe.gravitationalConstant;
-        transform.localScale = Vector3.one * r;
+        mass = sGravity * radius * radius / Universe.gravitationalConstant;
+        transform.localScale = Vector3.one * radius;
         gameObject.name = bName;
     }
 

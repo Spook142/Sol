@@ -7,6 +7,8 @@ public class NBodySimulation : MonoBehaviour
     CelestialBody[] bodies;
     static NBodySimulation instance;
 
+    public float timeScale;
+
     void Awake()
     {
         bodies = FindObjectsOfType<CelestialBody>();
@@ -18,12 +20,12 @@ public class NBodySimulation : MonoBehaviour
         for (int i = 0; i < bodies.Length; i++)
         {
             Vector3 accel = CalculateAcceleration(bodies[i].Position, bodies[i]);
-            bodies[i].UpdateVelocity(accel, Universe.physicsTimeStep);
+            bodies[i].UpdateVelocity(accel, timeScale);
         }
 
         for (int i = 0; i < bodies.Length; i++)
         {
-            bodies[i].UpdatePosition(Universe.physicsTimeStep);
+            bodies[i].UpdatePosition(timeScale);
         }
 
     }
@@ -37,11 +39,16 @@ public class NBodySimulation : MonoBehaviour
             {
                 float sqrDst = (body.Position - p).sqrMagnitude;
                 Vector3 fDir = (body.Position - p).normalized;
-                accel += fDir * Universe.gravitationalConstant * body.m / sqrDst;
+                accel += fDir * Universe.gravitationalConstant * body.mass / sqrDst;
             }
         }
 
         return accel;
+    }
+
+    public void AdjustTime(float newTime)
+    {
+        timeScale = newTime;
     }
 
     public static CelestialBody[] Bodies
