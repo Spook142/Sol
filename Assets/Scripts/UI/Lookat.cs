@@ -6,7 +6,7 @@ public class Lookat : MonoBehaviour
 {
     GameObject player;
 
-    void Start()
+    void Awake()
     {
         player = GameObject.FindWithTag("MainCamera");
     }

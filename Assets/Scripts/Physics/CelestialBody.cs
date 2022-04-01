@@ -10,6 +10,8 @@ public class CelestialBody : MonoBehaviour
     public Vector3 initialVelocity;
     public string bName = "null";
 
+    static int scale = 100;
+
     [SerializeField] private Vector3 Vel;
     public Vector3 velocity
     {
@@ -31,6 +33,7 @@ public class CelestialBody : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.mass = mass;
         velocity = initialVelocity;
+        gameObject.name = bName;
     }
 
     public void UpdateVelocity(CelestialBody[] allBodies, float timeStep)
@@ -43,7 +46,7 @@ public class CelestialBody : MonoBehaviour
                 Vector3 fDir = (otherBody.rb.position - rb.position).normalized;
 
                 Vector3 accel = fDir * Universe.gravitationalConstant * otherBody.mass / sqrDst;
-                velocity += accel * timeStep;               
+                velocity += accel * timeStep;
             }
         }
     }
@@ -58,11 +61,44 @@ public class CelestialBody : MonoBehaviour
         rb.MovePosition(rb.position + velocity * timeStep);
     }
 
-    void OnValidate()
+    public void UpdateMass()
     {
         mass = sGravity * radius * radius / Universe.gravitationalConstant;
+    }
+
+    public void ChangeRadius(float i)
+    {
+        radius += i / scale;
         transform.localScale = Vector3.one * radius;
+        UpdateMass();
+    }
+    public void ChangeGravity(float i)
+    {
+        sGravity += i / scale;
+        UpdateMass();
+    }
+
+    public void ChangeVelocityX(float i)
+    {
+        velocity += new Vector3(i / scale, 0, 0);
+    }
+
+    public void ChangeVelocityY(float i)
+    {
+        velocity += new Vector3(0, i / scale, 0);
+    }
+
+    public void ChangeVelocityZ(float i)
+    {
+        velocity += new Vector3(0, 0, i / scale);
+    }
+
+    //Debugging Purposes
+    void OnValidate()
+    {
         gameObject.name = bName;
+        transform.localScale = Vector3.one * radius;
+        UpdateMass();
     }
 
     public Rigidbody Rigidbody
@@ -81,4 +117,8 @@ public class CelestialBody : MonoBehaviour
         }
     }
 
+    public void DestroyGameObject()
+    {
+        Destroy(gameObject);
+    }
 }

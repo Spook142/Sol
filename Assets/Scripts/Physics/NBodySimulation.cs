@@ -11,23 +11,26 @@ public class NBodySimulation : MonoBehaviour
 
     void Awake()
     {
-        bodies = FindObjectsOfType<CelestialBody>();
+        findNewBodies();
         Time.fixedDeltaTime = Universe.physicsTimeStep;
+    }
+
+    public void findNewBodies()
+    {
+        bodies = FindObjectsOfType<CelestialBody>();
     }
 
     void FixedUpdate()
     {
         for (int i = 0; i < bodies.Length; i++)
         {
-            Vector3 accel = CalculateAcceleration(bodies[i].Position, bodies[i]);
-            bodies[i].UpdateVelocity(accel, timeScale);
+            if (bodies[i] != null)
+            {
+                Vector3 accel = CalculateAcceleration(bodies[i].Position, bodies[i]);
+                bodies[i].UpdateVelocity(accel, timeScale);
+                bodies[i].UpdatePosition(timeScale);
+            }
         }
-
-        for (int i = 0; i < bodies.Length; i++)
-        {
-            bodies[i].UpdatePosition(timeScale);
-        }
-
     }
 
     public static Vector3 CalculateAcceleration(Vector3 p, CelestialBody ignoreBody = null)
@@ -35,7 +38,7 @@ public class NBodySimulation : MonoBehaviour
         Vector3 accel = Vector3.zero;
         foreach (var body in Instance.bodies)
         {
-            if (body != ignoreBody)
+            if (body != ignoreBody && body != null)
             {
                 float sqrDst = (body.Position - p).sqrMagnitude;
                 Vector3 fDir = (body.Position - p).normalized;
@@ -49,6 +52,17 @@ public class NBodySimulation : MonoBehaviour
     public void AdjustTime(float newTime)
     {
         timeScale = newTime;
+    }
+
+    public void DestroyAllBodies()
+    {
+        foreach (var body in bodies)
+        {
+            if (body != null)
+            {
+                Destroy(body.transform.gameObject);
+            }
+        }
     }
 
     public static CelestialBody[] Bodies
