@@ -45,7 +45,6 @@ public class NBodySimulation : MonoBehaviour
                 accel += fDir * Universe.gravitationalConstant * body.mass / sqrDst;
             }
         }
-
         return accel;
     }
 

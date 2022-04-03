@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
@@ -22,10 +21,5 @@ public class GameMenu : MonoBehaviour
     {
         bool isActive = !gameObject.activeSelf;
         gameObject.SetActive(isActive);
-    }
-
-    public void Return()
-    {
-        SceneManager.LoadScene("MainMenuScene");
     }
 }
