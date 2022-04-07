@@ -6020,8 +6020,8 @@ MonoBehaviour:
   m_EnableUIInteraction: 1
   m_AllowAnchorControl: 1
   m_UseForceGrab: 0
-  m_RotateSpeed: 180
-  m_TranslateSpeed: 1
+  m_RotateSpeed: 0
+  m_TranslateSpeed: 3
   m_AnchorRotateReferenceFrame: {fileID: 0}
 --- !u!114 &2119536907
 MonoBehaviour:

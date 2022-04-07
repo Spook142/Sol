@@ -5,27 +5,21 @@ using TMPro;
 
 public class ChangeText : MonoBehaviour
 {
-    GameObject parent;
-    TextMeshProUGUI[] Texts;
+    public GameObject parent;
+    public TextMeshProUGUI _name;
+    public TextMeshProUGUI rad;
+    public TextMeshProUGUI vel;
+    public TextMeshProUGUI grav;
 
     void Awake()
     {
-        Texts = GetComponentsInChildren<TextMeshProUGUI>();
+        _name.text = parent.GetComponent<CelestialBody>().bName.ToString();
     }
 
     void Update()
     {
-        parent = transform.parent.gameObject;
-        for(int i = 0; i < Texts.Length; i++)
-        {
-            if (Texts[i].ToString() == "Title (TMPro.TextMeshProUGUI)")
-                Texts[i].text = parent.gameObject.GetComponent<CelestialBody>().bName;
-            else if (Texts[i].ToString() == "RText (TMPro.TextMeshProUGUI)")
-                Texts[i].text = (parent.gameObject.GetComponent<CelestialBody>().radius * 100f).ToString();
-            else if (Texts[i].ToString() == "VText (TMPro.TextMeshProUGUI)")
-                Texts[i].text = (parent.gameObject.GetComponent<CelestialBody>().velocity * 100f).ToString();
-            else if (Texts[i].ToString() == "GText (TMPro.TextMeshProUGUI)")
-                Texts[i].text = (parent.gameObject.GetComponent<CelestialBody>().sGravity * 100f).ToString();
-        }
+        rad.text = (parent.GetComponent<CelestialBody>().radius * 100f).ToString();
+        vel.text = (parent.GetComponent<CelestialBody>().velocity * 100f).ToString();
+        grav.text = (parent.GetComponent<CelestialBody>().sGravity * 100f).ToString();
     }
 }

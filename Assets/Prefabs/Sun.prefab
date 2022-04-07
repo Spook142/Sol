@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10242946492985260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.55, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.025, z: 1}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0}
+  m_LocalScale: {x: 0.025, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 5187970426944259532}
   m_RootOrder: 5
@@ -644,8 +644,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792249559564481402}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0.55, z: -0}
-  m_LocalScale: {x: 0.1, y: 0.025, z: 1}
+  m_LocalPosition: {x: 0.5, y: 0, z: -0}
+  m_LocalScale: {x: 0.025, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 5187970426944259532}
   m_RootOrder: 7
@@ -726,8 +726,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005507081125359567}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.55, y: 0, z: -0}
-  m_LocalScale: {x: 0.1, y: 0.025, z: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: -0}
+  m_LocalScale: {x: 0.025, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 5187970426944259532}
   m_RootOrder: 1
@@ -933,13 +933,14 @@ GameObject:
   - component: {fileID: 2609635256936999135}
   - component: {fileID: 5251687464456550589}
   - component: {fileID: 13333560990582855}
+  - component: {fileID: 4260664545525361356}
   m_Layer: 0
-  m_Name: DirectionCanvas
+  m_Name: OrientationCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5187970426944259532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -959,9 +960,8 @@ RectTransform:
   - {fileID: 2485554028092553914}
   - {fileID: 6623871372510550711}
   - {fileID: 8825641996708999551}
-  - {fileID: 6805212757710484021}
   m_Father: {fileID: 8397903320259811854}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1048,6 +1048,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
+--- !u!114 &4260664545525361356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2604850721189309842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aadc22e7a33f99249aeaf2af2410b5de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4087975236433995179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1205,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5121221668725765496}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5121221668725765496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,7 +1234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6805212757710484021
 Transform:
   m_ObjectHideFlags: 0
@@ -1218,12 +1242,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5121221668725765496}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.07, z: 1}
+  m_LocalScale: {x: 0.08, y: 0.07, z: 1}
   m_Children: []
-  m_Father: {fileID: 5187970426944259532}
-  m_RootOrder: 8
+  m_Father: {fileID: 8397903320259811854}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4814663247343761121
 SpriteRenderer:
@@ -1288,6 +1312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd96d835702bae4eae818ad99c1f070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 8397903320259811855}
 --- !u!1 &6078178265341501211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,8 +1338,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6078178265341501211}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.55, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.025, z: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.025, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 5187970426944259532}
   m_RootOrder: 3
@@ -5442,6 +5467,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8397903320111549812}
+  - {fileID: 6805212757710484021}
   - {fileID: 5187970426944259532}
   - {fileID: 8397903320343026242}
   m_Father: {fileID: 0}
@@ -5588,6 +5614,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 2604850721189309842}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5121221668725765496}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -5832,7 +5870,7 @@ RectTransform:
   - {fileID: 8397903319129208849}
   - {fileID: 3297325864323432364}
   m_Father: {fileID: 8397903320259811854}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5943,6 +5981,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66cfcbe1e542c445947848c2ad49c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 8397903320259811855}
+  _name: {fileID: 8397903319212017021}
+  rad: {fileID: 8397903318799170992}
+  vel: {fileID: 8397903319998881017}
+  grav: {fileID: 8397903318658202498}
 --- !u!1 &8397903320454906569
 GameObject:
   m_ObjectHideFlags: 0

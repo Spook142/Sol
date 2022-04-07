@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class DirectionLook : MonoBehaviour
 {
-    Vector3 prevPos;
-    Vector3 newPos;
+    public GameObject parent;
     Quaternion _lookRotation;
     float RotationSpeed = 30.0f;
+    Vector3 newPos;
+    Vector3 prevPos;
 
     // Update is called once per frame
     void Update()
     {
-        newPos = transform.parent.parent.GetComponent<CelestialBody>().updatedPosition;
-        prevPos = transform.parent.parent.GetComponent<CelestialBody>().previousPosition;
+        newPos = parent.GetComponent<CelestialBody>().updatedPosition;
+        prevPos = parent.GetComponent<CelestialBody>().previousPosition;
 
         Vector3 heading = newPos - prevPos;
         var distance = heading.magnitude;
