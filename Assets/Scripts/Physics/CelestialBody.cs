@@ -9,6 +9,8 @@ public class CelestialBody : MonoBehaviour
     public float sGravity;
     public Vector3 initialVelocity;
     public string bName = "null";
+    public Vector3 previousPosition;
+    public Vector3 updatedPosition;
 
     static int scale = 100;
 
@@ -58,7 +60,9 @@ public class CelestialBody : MonoBehaviour
 
     public void UpdatePosition(float timeStep)
     {
-        rb.MovePosition(rb.position + velocity * timeStep);
+        previousPosition = rb.transform.position;
+        updatedPosition = rb.position + velocity * timeStep;
+        rb.MovePosition(updatedPosition);
     }
 
     public void UpdateMass()
