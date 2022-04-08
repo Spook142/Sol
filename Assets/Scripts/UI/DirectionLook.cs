@@ -16,13 +16,15 @@ public class DirectionLook : MonoBehaviour
         newPos = parent.GetComponent<CelestialBody>().updatedPosition;
         prevPos = parent.GetComponent<CelestialBody>().previousPosition;
 
-        Vector3 heading = newPos - prevPos;
-        var distance = heading.magnitude;
-        var direction = heading / distance;
+        if (newPos != prevPos)
+        {
+            Vector3 heading = newPos - prevPos;
+            var distance = heading.magnitude;
+            var direction = heading / distance;
 
-        _lookRotation = Quaternion.LookRotation(direction);
-        Quaternion newRotation = _lookRotation * Quaternion.Euler(0, 90, 0);
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Universe.physicsTimeStep * RotationSpeed);
+            _lookRotation = Quaternion.LookRotation(direction);
+            Quaternion newRotation = _lookRotation * Quaternion.Euler(0, 90, 0);
+            transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Universe.physicsTimeStep * RotationSpeed);
+        }
     }
 }

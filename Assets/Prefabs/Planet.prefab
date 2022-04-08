@@ -844,7 +844,7 @@ GameObject:
   - component: {fileID: 5786133540196653486}
   m_Layer: 0
   m_Name: DirectionArrow
-  m_TagString: Untagged
+  m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1107,7 +1107,7 @@ GameObject:
   - component: {fileID: 111987452512687545}
   m_Layer: 0
   m_Name: OrientationCanvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5275,6 +5275,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 8397903320343026252}
+        m_TargetAssemblyTypeName: ChangeText, Assembly-CSharp
+        m_MethodName: CloseOtherCanvases
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
       m_Calls: []
@@ -5484,7 +5496,7 @@ GameObject:
   - component: {fileID: 8397903320343026252}
   m_Layer: 0
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5624,6 +5636,8 @@ MonoBehaviour:
   rad: {fileID: 8397903318799170992}
   vel: {fileID: 8397903319998881017}
   grav: {fileID: 8397903318658202498}
+  selfArrow: {fileID: 3805363377133452464}
+  selfDir: {fileID: 6931678484540370243}
 --- !u!1 &8397903320454906569
 GameObject:
   m_ObjectHideFlags: 0

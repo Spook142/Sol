@@ -46,7 +46,6 @@ public class CelestialBody : MonoBehaviour
             {
                 float sqrDst = (otherBody.rb.position - rb.position).sqrMagnitude;
                 Vector3 fDir = (otherBody.rb.position - rb.position).normalized;
-
                 Vector3 accel = fDir * Universe.gravitationalConstant * otherBody.mass / sqrDst;
                 velocity += accel * timeStep;
             }
